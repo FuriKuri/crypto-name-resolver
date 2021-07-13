@@ -12,18 +12,53 @@
       #message h2 { color: #ffa100; font-weight: bold; font-size: 16px; margin: 0 0 8px; }
       #message h1 { font-size: 22px; font-weight: 300; color: rgba(0,0,0,0.6); margin: 0 0 16px;}
       #message p { line-height: 140%; margin: 16px 0 24px; font-size: 14px; }
-      #message a { display: block; text-align: center; background: #039be5; text-transform: uppercase; text-decoration: none; color: white; padding: 16px; border-radius: 4px; }
+      #message a { text-align: center; background: #039be5; text-transform: uppercase; text-decoration: none; color: white; padding: 16px; border-radius: 4px; }
+      #message input { text-decoration: none; color: #039be5; border-radius: 4px; padding: 8px; margin: 0 0 10px}
+
       #message, #message a { box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24); }
       #load { color: rgba(0,0,0,0.4); text-align: center; font-size: 13px; }
       @media (max-width: 600px) {
         body, #message { margin-top: 0; background: white; box-shadow: none; }
         body { border-top: 16px solid #ffa100; }
       }
+      #result { background: white; max-width: 800px; margin: 10px auto 16px; padding: 10px 24px 16px; border-radius: 3px; }
+      #result h3 { color: #888; font-weight: normal; font-size: 16px; margin: 16px 0 12px; }
+      #result p { line-height: 140%; margin: 16px 0 2px; font-size: 14px; }
+      #result li { line-height: 140%; font-size: 14px; }
+
     </style>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/js-sha3/0.8.0/sha3.min.js"
+      integrity="sha512-PmGDkK2UHGzTUfkFGcJ8YSrD/swUXekcca+1wWlrwALIZho9JX+3ddaaI9wmmf8PmgDIpMtx6TU8YBJAZS0mPQ=="
+      crossorigin="anonymous">
+    </script>
+
+    <!-- This exposes the ethers.js library as a global variable: ethers -->
+    <script src="https://cdn.ethers.io/lib/ethers-5.0.umd.min.js"
+      type="application/javascript"></script>
   </head>
   <body>
     <div id="message">
-      <h2>Welcome</h2>
+      <h1>Resolve crypto domains</h1>
+      <input type="text" id="domain-input" value="">
+      <a target="_blank" onclick="resolve()">Resolve</a>
     </div>
+    <div id="result">
+      <h3>Result</h3>
+      <p>
+        Owner: <span id="owner"></span>
+      </p>
+      <p>
+        Resolver: <span id="resolver"></span>
+      </p>
+      <p id="keys">
+        Keys:
+        <ul id="key-items">
+
+        </ul>
+      </p>
+    </div>
+
+    <script src="index.js"></script>
   </body>
 </html>
